@@ -1,2 +1,2 @@
-# everestCartWebClient
-Angular Client for Everest Cart
+# everestcartWeb
+ecommerce web application with Angular material design.
