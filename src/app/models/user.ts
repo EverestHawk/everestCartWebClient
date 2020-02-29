@@ -6,4 +6,6 @@ export class User {
     lastName: string;
     role: string;
     token?: string;
+    expiresIn?:number;
+    accessToken?:string;
 }

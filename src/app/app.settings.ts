@@ -12,3 +12,4 @@ export class AppSettings {
         'red'     // green, blue, red, pink, purple, grey
     )
 }
+

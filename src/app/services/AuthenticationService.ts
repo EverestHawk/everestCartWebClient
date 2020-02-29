@@ -1,9 +1,11 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { User } from "../models/user";
 import { HttpClient } from "@angular/common/http";
 import { environment } from "src/environments/environment";
+
+
 
 
 @Injectable({ providedIn: 'root' })
@@ -19,12 +21,14 @@ export class AuthenticationService {
     public get currentUserValue(): User {
         return this.currentUserSubject.value;
     }
+    
+   
 
     login(username: string, password: string) {
         return this.http.post<any>(`${environment.apiUrl}/account/signin`, {usernameoremail:username, password})
         .pipe(map(data => {
             var statusCode = data.statusCode;
-            var user = data.results ? data.results[0] : null;
+            let user:User = data.results ? data.results[0] : null;
             if (statusCode === 200 && user && user.token) {
                 localStorage.setItem('currentuser', JSON.stringify(user));
                 this.currentUserSubject.next(user);
@@ -38,4 +42,17 @@ export class AuthenticationService {
         localStorage.removeItem('currentuser');
         this.currentUserSubject.next(null);
     }
+    refreshToken(){
+       
+      
+        return this.http.post<any>(`${environment.apiUrl}/manage/refreshToken`, {
+            "accessToken":this.currentUserValue.accessToken,
+            "refreshToken":this.currentUserValue.token,
+            "expiresIn":this.currentUserValue.expiresIn
+        }).pipe(map(tokens =>{
+           
+        }))
+    }
+
+   
 }
