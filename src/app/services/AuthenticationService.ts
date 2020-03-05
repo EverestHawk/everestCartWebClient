@@ -5,7 +5,6 @@ import { User } from "../models/user";
 import { HttpClient } from "@angular/common/http";
 import { environment } from "src/environments/environment";
 import { IRegisterModel } from "../models/registerModel";
-import {UserManager, User} from "oidc-client";
 
 
 
