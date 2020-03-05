@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { emailValidator, matchingPasswords } from '../../theme/utils/app-validators';
 import { AuthenticationService } from 'src/app/services/AuthenticationService';
 import { AlertService } from 'src/app/services/AlertService';

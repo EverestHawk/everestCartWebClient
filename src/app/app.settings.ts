@@ -9,7 +9,7 @@ export class Settings {
 export class AppSettings {
     public settings = new Settings(
         'EverestCart - Handicrafts at its best',  // Title
-        'red'     // green, blue, red, pink, purple, grey
+        'blue'     // green, blue, red, pink, purple, grey
     )
 }
 
