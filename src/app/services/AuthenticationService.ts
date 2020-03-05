@@ -4,6 +4,8 @@ import { map, tap } from 'rxjs/operators';
 import { User } from "../models/user";
 import { HttpClient } from "@angular/common/http";
 import { environment } from "src/environments/environment";
+import { IRegisterModel } from "../models/registerModel";
+import {UserManager, User} from "oidc-client";
 
 
 
@@ -37,6 +39,21 @@ export class AuthenticationService {
             throw new Error(data.errors.join(', '));
         }))
     }
+    register(registerModel:IRegisterModel){
+        return this.http.post<any>(`${environment.apiUrl}/account/register`,registerModel)
+        .pipe(map(data=>{
+            var statusCode= data.statusCode;
+            var user=data.results? data.results[0]:null;
+            if(statusCode==200 && user && user.token){
+                localStorage.setItem('currenUser',JSON.stringify(user));
+                this.currentUserSubject.next(user);
+                
+            }
+            throw new Error(data.error.joins(', '));
+        }))
+    }
+
+    
 
     logout() {
         localStorage.removeItem('currentuser');

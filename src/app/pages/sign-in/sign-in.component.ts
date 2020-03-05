@@ -6,6 +6,7 @@ import { emailValidator, matchingPasswords } from '../../theme/utils/app-validat
 import { AuthenticationService } from 'src/app/services/AuthenticationService';
 import { AlertService } from 'src/app/services/AlertService';
 import { first } from 'rxjs/operators';
+import { IRegisterModel } from 'src/app/models/registerModel';
 
 @Component({
   selector: 'app-sign-in',
@@ -30,7 +31,7 @@ export class SignInComponent implements OnInit {
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
       'email': ['', Validators.compose([Validators.required, emailValidator])],
-      'password': ['', Validators.compose([Validators.required, Validators.minLength(6)])] 
+      'password': ['', Validators.compose([Validators.required, Validators.minLength(6)])]
     });
 
     this.registerForm = this.formBuilder.group({
@@ -38,7 +39,7 @@ export class SignInComponent implements OnInit {
       'email': ['', Validators.compose([Validators.required, emailValidator])],
       'password': ['', Validators.required],
       'confirmPassword': ['', Validators.required]
-    },{validator: matchingPasswords('password', 'confirmPassword')});
+    }, {validator: matchingPasswords('password', 'confirmPassword')});
 
     // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
@@ -61,9 +62,16 @@ export class SignInComponent implements OnInit {
     }
   }
 
-  public onRegisterFormSubmit(values:Object):void {
+  public onRegisterFormSubmit(values:FormGroup):void {
+    let registerModel:IRegisterModel={
+      name:values['name'],
+      confirmPassword:values['confirmPassword'],
+      email:values['email'],
+      password:values['password']
+    };
     if (this.registerForm.valid) {
-      this.alertService.success('You have been registered successfully!');
+      this.authService
+      // this.alertService.success('You have been registered successfully!');
     }
   }
 
