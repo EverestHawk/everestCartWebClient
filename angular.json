@@ -85,7 +85,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "everestcart:build"
+            "browserTarget": "everestcart:build",
+            "port": 54321
           },
           "configurations": {
             "production": {

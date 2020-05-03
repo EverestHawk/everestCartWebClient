@@ -8,8 +8,8 @@ export class Settings {
 @Injectable()
 export class AppSettings {
     public settings = new Settings(
-        'EverestCart - Handicrafts at its best',  // Title
-        'blue'     // green, blue, red, pink, purple, grey
+        'EverestCart - Made in Nepal',  // Title
+        'green'     // green, blue, red, pink, purple, grey
     )
 }
 

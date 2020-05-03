@@ -432,6 +432,9 @@ button.swipe-arrow{
     height: 12px;
     vertical-align: -2px;
 }
+.swiper-button-next:after, .swiper-button-prev:after, .swiper-container-rtl .swiper-button-next:after, .swiper-container-rtl .swiper-button-prev:after {
+    content: none;
+}
 
 /******* Product *******/
 .product-item{  

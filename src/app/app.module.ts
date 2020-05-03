@@ -35,7 +35,7 @@ import { TokenInterceptor } from './theme/utils/TokenInterceptor';
     HttpClientModule,
     NgxSpinnerModule,
     AgmCoreModule.forRoot({
-      apiKey: ''
+      apiKey: 'AIzaSyCLxk4CpM9K5mKjEZrffJB9kx4Cj8I_Gy4'
     }),
     SharedModule,
     routing
