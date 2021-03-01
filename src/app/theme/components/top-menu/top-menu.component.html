@@ -24,10 +24,10 @@
         </span>
     </mat-menu>
 
-    <span fxShow="false" fxShow.gt-sm>
+    <!-- <span fxShow="false" fxShow.gt-sm>
         <a mat-button routerLink="/compare">Compare  ({{appService.Data.compareList.length}})</a>
         <a mat-button routerLink="/wishlist">Wishlist ({{appService.Data.wishList.length}})</a>
-    </span>  
+    </span>   -->
 
     <a mat-button [matMenuTriggerFor]="accountMenu" #accountMenuTrigger="matMenuTrigger">
         <mat-icon class="mat-icon-sm account-icon">person</mat-icon> <span fxShow="false" fxShow.gt-sm>account</span> <mat-icon class="mat-icon-sm caret">arrow_drop_down</mat-icon>
